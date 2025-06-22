@@ -1,0 +1,32 @@
+nav{
+    color: black;
+    font-weight: 300;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+h1{
+    color: black;
+    font-weight: 300;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+}
+h2{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:navy;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+
+
+.right-text {
+  display: block;
+  text-align: right; 
+}
+
+.link-row {
+  display: flex;
+  justify-content: space-between; /* Pushes items to far ends */
+  align-items: center;
+}

@@ -1,22 +1,73 @@
-nav{
+.link-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+}
+
+.link-row a {
+white-space: nowrap;
+}
+
+
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px; /* space between text and image */
+}
+
+.about-img img{
+  max-width: 300px; /* or whatever max size you want */
+  width: 100%;
+  height: auto;
+  flex-shrink: 1;
+}
+
+nav a{
     color: black;
     font-weight: 300;
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    transition: border-bottom 0.1s;
 }
+
+nav a:hover {
+  border-bottom: 1px solid #000000;
+}
+
+p{
+  font-size: larger;
+}
+p,h1,h2,ol,footer,li{
+  font-family:CustomFont, 'Courier New', Courier, monospace;
+  max-width: 900px;
+  min-width: 400px;
+  flex-wrap: nowrap;
+}
+
+p,h1,h2,ol,footer,li{
+  margin-left: 200px;
+  margin-right: 550px;
+}
+
+aside{
+  text-align: right;
+}
+
 h1{
     color: black;
-    font-weight: 300;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: CustomFont, 'Courier New', Courier, monospace;
     font-size: 30px;
+    margin-top: 50px;
 }
-h2{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:navy;
-}
-a{
-    color: black;
-    text-decoration: none;
+
+@font-face {
+  font-family: "CustomFont";
+  src: url("CustomFont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 
@@ -27,6 +78,7 @@ a{
 
 .link-row {
   display: flex;
-  justify-content: space-between; /* Pushes items to far ends */
   align-items: center;
+  margin-left: 200px;
+  margin-right: 200px;
 }

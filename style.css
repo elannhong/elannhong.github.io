@@ -52,11 +52,13 @@ body{
   margin-left: 100px;
   font-size: larger;
 }
-@font-face {
-  font-family: "CustomFont";
-  src: url("CustomFont.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+
+.bucketList-main,.bookList-main,.projects-main{
+  padding-left: 100px;
+}
+
+aside{
+  text-align: right;
 }
 
 .aboutme-link{
@@ -71,25 +73,10 @@ body{
   color: blue;
 }
 
-p,h1,h2,ol,footer,li{
-  
-  max-width: 600px;
-  min-width: 200px;
-  flex-wrap: nowrap;
-}
-
-h1,h2,ol,footer,li{
-  margin-left: 200px;
-  margin-right: 550px;
-}
-
-aside{
-  text-align: right;
-}
-
-h1{
-    color: black;
-    font-size: 30px;
-    margin-top: 50px;
+@font-face {
+  font-family: "CustomFont";
+  src: url("CustomFont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 

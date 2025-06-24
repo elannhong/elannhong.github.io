@@ -4,7 +4,12 @@ body{
   color: black;
 }
 
-.wrapper{
+.site-header{
+  padding-bottom: 15px;
+  border-bottom: 1px solid #cecaca
+}
+
+.wrapper {
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
@@ -47,6 +52,9 @@ body{
   padding-right: 8px;
 }
 
+.f-list{
+  padding-left:0px;
+}
 .page-link{
   color: #424242;
   font-weight: 100;
@@ -59,10 +67,58 @@ body{
   padding-bottom: 0px;
 }
 
-.page-link:hover,.site-title:hover {
-  border-bottom: 1px solid #000000;
+.site-footer{
+  display: block;
+  border-top: 1px solid #cecaca;
+  color: #424242;
+  padding: 15px;
+  margin-top:70px;
+  min-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.f-wrapper{
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 800px;
+}
+
+.f-col1{
+  float: left;
+  vertical-align: middle;
+  span{
+    color: rgb(0, 0, 255);
+    font-weight: 300;
+    text-decoration: none;
+  }
+}
+
+.f-list li{
+  display: flex;
+  list-style: none;
+  align-items: center;
+  a{
+    padding-left: 5px;
+  }
+}
+
+.f-col2{
+  float: right;
+}
+
+.footer-links{
+  text-decoration: none;
+}
+
+.page-link:hover,.site-title:hover, .footer-links:hover{
+  border-bottom: 1px solid #000000;
+}
 
 .bucketList-main,.bookList-main,.projects-main{
   display: block;

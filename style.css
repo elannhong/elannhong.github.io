@@ -17,9 +17,10 @@ body{
 }
 
 .about-img{
-  float: right; 
-  padding:50px;
   display: block;
+  float: right; 
+  padding-bottom: 50px;
+  padding-left: 50px
 }
 
 .about-text{
@@ -71,8 +72,6 @@ body{
   min-width: 200px;
   max-width: 800px;
   justify-content: center;
-  height: 100vh;
-  width: 100vw; 
   margin-left: auto;
   margin-right: auto;
 }

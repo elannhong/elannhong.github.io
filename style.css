@@ -5,11 +5,34 @@ body{
 }
 
 .wrapper{
-  padding-left: 100px;
-  padding-right: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  max-width: 800px;
+}
+
+.about-img{
+  float: right; 
+  padding:50px;
+  display: block;
+}
+
+.about-text{
+  display: block;
+  padding-left:15px;
+  padding-right: 15px;
+  padding-top:60px;
+  font-size: larger;
+  min-width: 200px;
+  max-width: 800px; 
+  
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .site-title{
@@ -20,6 +43,7 @@ body{
   text-decoration: none;
   transition: border-bottom 0.1s;
   white-space: nowrap;
+  padding-right: 8px;
 }
 
 .page-link{
@@ -38,29 +62,19 @@ body{
   border-bottom: 1px solid #000000;
 }
 
-.links-nav{
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 25px;
-}
-
-.about-img{
-  float: right; 
-  padding:50px;
-  height: auto;
-  max-width: 100%;
-}
-
-.about-text{
-  padding-left:100px;
-  padding-top:30px;
-  font-size: larger;
-  min-width: 200px;
-  max-width: 800px;
-}
 
 .bucketList-main,.bookList-main,.projects-main{
-  padding-left: 100px;
+  display: block;
+  padding-left:15px;
+  padding-right: 15px;
+  padding-top:30px;
+  min-width: 200px;
+  max-width: 800px;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw; 
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .aboutme-link{

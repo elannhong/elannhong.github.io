@@ -1,2 +1,2 @@
 "# personal website"  
-webstie @ elannhong.github.io
+website @ elannhong.github.io

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<html>
+<html lang="en"> 
     <head>
         <meta charset="utc-8" name = "viewport" content="width=device-width,initial-scale=1.0">
         <title>100 things</title>
@@ -10,58 +9,137 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     </head>
     <body>
-       <header>
-            <div class="wrapper">
-                <a class="site-title" href="/">Elan Hong</a>
-                <nav class="links-nav">
-                    <div>
-                        <a class="page-link" href="projects.html">projects</a>
-                        <a class="page-link" href="bucketList.html">bucketList</a>
-                        <a class="page-link" href="bookList.html">bookList</a>
-                    </div>
-                </nav>
+      <header>
+        <div class="wrapper">
+          <a class="site-title" href="/">Elan Hong</a>
+          <nav class="links-nav">
+            <div>
+              <a class="page-link" href="projects.html">projects</a>
+              <a class="page-link" href="bucketList.html">bucketList</a>
+              <a class="page-link" href="bookList.html">bookList</a>
             </div>
-        </header>
+          </nav>
+        </div>
+      </header>
 
-        <main class="projects-main">
-            <h1>Projects</h1>
-            <section class="project-section">
-                <h2>Eisenhower Matrix</h2>
-                <p>A simple tool that helps you prioritize tasks based on urgency and importance by sorting them in a matrix. Based on the quadrant you put the task in, you can determine how to handle it:</p>
-                    <ul>
-                        <li>Urgent and Important: Do these tasks immediately</li>
-                        <li>Urgent and Not Important: Delegate these tasks to someone else</li>
-                        <li>Not Urgent and Important: Schedule these tasks for a later time</li>
-                        <li>Not Urgent and Not Important: Delete these tasks</li>
-                    </ul>
-                <h3>Inspiration</h3>
-                    <p>I like using todo lists to organize my daily tasks, but I often struggled to decide which tasks to do first. I made this tool to help myslef and others easily arrange tasks in a visual way.</p>
-                <div class="gif-container">
-                    <img src="eisenhower.gif" alt="adding tasks to the matrix" class="project-gif">
-                </div>
-                <h3>Adding Tasks</h3>
-                <p>how draggin works:
-                    all tasks have id called taskbox 
-                    
-                    in js have task set here:
-                    let taskbox = document.querySelector(".taskbox");
-                    
-                    1.have event listener for mouse down on any task, triggers drag start 
-                    2.drag start sets draggin to true, sets a var for the specific task being dragged, calcs offset of mouse from task box top left to adjust later
-                    3.in mouse move event listener, IF drag is true and dragtarget exists,update task pos to mouse x,y minus offset(calculated from drag start)
-                    4.in mouse up event listener, reset all vars: draggin to false, drag target to null
-                    5. everything same for desktop, just touch listeners insted of mouse listens on desktop </p>
-                    <pre><code class="language-javascript">
-                        function startDrag(e) {
-                            const task = e.target.closest('.taskbox');
-                            if (!task) return;
-                            
-                            isDragging = true;
-                            dragTarget = task;
-                        }
-                    </code></pre>
-            </section>
-        </main>
+    <main class="projects-main">
+        <h1>Projects</h1>
+        <section class="project-section">
+          <h2>Eisenhower Matrix</h2>
+          <h3><a href="https://fascinating-cat-363557.netlify.app/">Website Link </a></h3>
+          <p>
+            A simple tool that helps you prioritize tasks based on urgency and
+            importance by sorting them in a matrix. Based on the quadrant you
+            put the task in, you can determine how to handle it:
+          </p>
+          <ul>
+            <li>Urgent and Important: Do these tasks immediately</li>
+            <li>
+              Urgent and Not Important: Delegate these tasks to someone else
+            </li>
+            <li>
+              Not Urgent and Important: Schedule these tasks for a later time
+            </li>
+            <li>Not Urgent and Not Important: Delete these tasks</li>
+          </ul>
+          <h3>Inspiration</h3>
+          <p>
+            I like using todo lists to organize my daily tasks, but I often
+            struggled to decide which tasks to do first. I made this tool to
+            help myself and others easily arrange tasks in a visual way.
+          </p>
+          <div class="gif-container">
+            <img
+              src="eisenhower.gif"
+              alt="adding tasks to the matrix"
+              class="project-gif"
+              width="800"
+              height="100"
+            />
+          </div>
+          
+          The two main features of this project are creating tasks and dragging tasks around. Here's a quick explination of how each feature was implemented. 
+          <h3>Creating Tasks</h3>
+          
+          <ol>
+            <li>
+            <p>A taskbox is made after the user hits the add task button, enters a task, and hits the enter button. After this is done the inputbox disappears.</p>
+            <pre><code class="language-javascript">document.querySelector("html").addEventListener("keydown", e => {
+    if (e.key === 'Enter' && input.value!='' && input.style.display === "block") {
+        input.style.display = "none";
+        taskbox.style.display = "flex";
+    //...
+    }}}</code></pre>
+            </li>
+            <li>
+            <p>To create a new task, a template task is cloned. The new task gets the 'taskbox' id and the task text from <code>input.value</code>.</p>
+            <pre><code class = "language-javascript">const tasktemplate = document.querySelector('.taskbox');
+const newtask = tasktemplate.cloneNode(true);
+newtask.classList.add('taskbox'); // ensure class is present
+newtask.textContent = input.value; // set text
+            </code></pre>
+
+            <li> Finally, add a drag event listener to the newtask so it can be dragged (explained below) and insert it. 
+                <pre><code class = "language-javascript">newtask.addEventListener("mousedown", dragStart);
+newtask.addEventListener("touchstart", dragStartTouch);
+tasktemplate.parentNode.insertBefore(newtask, tasktemplate.nextSibling);</code></pre>
+                
+            </li>
+            </li>
+
+            
+          </ol>
+
+          <h3>Dragging Tasks</h3>
+          <ol>
+            <li>
+              <b>Start Drag:</b> When you press and hold (mousedown) on a
+              taskbox, the <code>dragStart</code> function is triggered, setting
+              up the drag state and calculating the mouse offset. 
+            </li>
+            <pre><code class="language-javascript">function dragStart(e) {
+    isDragging = true;
+    dragTarget = e.target;
+    offsetX = e.clientX - dragTarget.offsetLeft;
+    offsetY = e.clientY - dragTarget.offsetTop;
+    dragTarget.style.cursor = "grabbing";
+    e.preventDefault();
+}</code></pre>
+            <li>
+              <b>Move Task:</b> As you move the mouse, the taskbox follows the
+              cursor, updating its position based on the mouse coordinates minus
+              the offset. <br> This is done because we want the mouse to stay in the same position relative to the taskbox while the box is moved. The taskbox <code>dragTarget</code> postion can only be set with the coordinates of the top left corner. So to have the taskbox stay the same distance from the mouse for the entire dragging duration, we set the box's top left corner position to the mouse's position minus the inital offset when clicked. 
+            </li>
+            <pre><code class="language-javascript">document.addEventListener("mousemove", (e) => {
+    if (isDragging && dragTarget) {
+        dragTarget.style.left = (e.clientX - offsetX) + "px";
+        dragTarget.style.top = (e.clientY - offsetY) + "px";
+    }
+    // ... check for overlap with delete box ...
+});</code></pre>
+            <li>
+              <b>Drop Task:</b> When you release the mouse (mouseup), dragging
+              stops. If the task is over the delete box, it is removed.
+            </li>
+            <pre><code class="language-javascript">document.addEventListener("mouseup", () => {
+    if (dragTarget) dragTarget.style.cursor = "grab";
+    if(isOverBlock){
+        dragTarget.remove();
+    }
+    isDragging = false;
+    dragTarget = null;
+    isOverBlock = false;
+    delBlock.classList.remove("hover");
+});</code></pre>
+            <li>
+              <b>Touch Support:</b> The same logic applies for touch events,
+              using <code>touchstart</code>, <code>touchmove</code>, and
+              <code>touchend</code> listeners for mobile devices.
+            </li>
+          </ol>
+          <p>I plan on adding to this project in the future, so stay tuned! </p>
+        </section>
+    </main>
 
         <footer class="site-footer">
             <div class="f-wrapper">

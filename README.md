@@ -1,2 +1,1 @@
-"# personal website"  
-website @ elannhong.github.io
+personal website

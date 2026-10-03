@@ -175,6 +175,33 @@ section {
   color: var(--ink-faint);
 }
 
+/* Chess game */
+
+.game-meta {
+  color: var(--ink-faint);
+}
+
+.game {
+  margin-top: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 0.375rem;
+  aspect-ratio: 600 / 397;
+}
+
+.game iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 39.99rem) {
+  .game {
+    aspect-ratio: 4 / 5;
+  }
+}
+
 /* Book list page */
 
 .shelf-section {

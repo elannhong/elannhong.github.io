@@ -175,29 +175,6 @@ section {
   color: var(--ink-faint);
 }
 
-/* Book covers on the home page */
-
-.shelf {
-  display: flex;
-  gap: 0.5rem;
-  height: 130px;
-  margin-top: 2rem;
-  overflow: hidden;
-}
-
-.shelf img {
-  width: auto;
-  height: 100%;
-  border-radius: 3px;
-  background: var(--rule);
-  opacity: 0.9;
-  transition: opacity 0.15s var(--ease);
-}
-
-.shelf img:hover {
-  opacity: 1;
-}
-
 /* Book list page */
 
 .shelf-section {
@@ -256,10 +233,6 @@ section {
 
   .links > .break {
     display: none;
-  }
-
-  .shelf {
-    height: 160px;
   }
 
   .books {
